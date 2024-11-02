@@ -9,4 +9,4 @@ width = 2480
 channels = 3
 img = np.full((height,width,channels), 255, dtype=np.uint8)
 # cv2.imshow("blank_image", img)
-cv2.imwrite("blank_image.png", img)
+cv2.imwrite("output.png", img)

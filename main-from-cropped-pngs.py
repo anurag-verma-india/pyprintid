@@ -105,7 +105,7 @@ for i in range(len(png_files)):
     # print(new_height)
     file_to_paste = file_to_paste.resize((new_width, new_height))
 
-    bg_image.paste(file_to_paste, box=(mm_to_pixel(7), mm_to_pixel(i*70+5)))
+    bg_image.paste(file_to_paste, box=(mm_to_pixel(7), mm_to_pixel(i*70+5)), mask=file_to_paste)
     print(f"Added '{png_files[i]}' in final the output")
     
 bg_image.save("output.png")

@@ -1,4 +1,5 @@
 import simple_pdf_to_png
+import white_bg_crop
 from PIL import Image
 import os
 
@@ -36,7 +37,7 @@ def mm_to_pixel(mm: float):
     return pixels
 
 
-if not os.path.isfile("./blank_image.png"):
+if not os.path.isfile("blank_image.png"):
     print("Creating blank image")
     import numpy as np
     import cv2
@@ -46,7 +47,8 @@ if not os.path.isfile("./blank_image.png"):
     img = np.full((height,width,channels), 255, dtype=np.uint8)
     cv2.imwrite("blank_image.png", img)
 
-simple_pdf_to_png.convert_pdf_to_png("./pdf-files", "./png-files")
+simple_pdf_to_png.convert_pdf_to_png("pdf-files", "png-files")
+white_bg_crop.crop_out_white_pixels("png-files", "cropped-pngs")
 
 # TODO: Convert simple pdf_to_pngs to tansparent pngs
 print()
@@ -110,7 +112,20 @@ for i in range(len(png_files)):
     
 bg_image.save("output.png")
     
-    
+# TODO: Delete intermediate png files
+
+# TODO: convert png to pdf for printing    
+
+
+
+
+
+
+
+
+
+
+
 
 # pasted_img1 = Image.open(r"png-files/MATHURALAL copy 1.png")
 # print(pasted_img1.size)

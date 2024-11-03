@@ -29,7 +29,7 @@ def convert_white_pixels_to_transparent(img: Image.Image) -> Image.Image:
     return img
 
 
-def remove_white_pixels(input_folder, output_folder):
+def crop_out_white_pixels(input_folder, output_folder):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     # Remove blank pixels
@@ -63,4 +63,4 @@ def remove_white_pixels(input_folder, output_folder):
 if __name__ == "__main__":
     input_folder_global = "png-files/"
     output_folder_global = "cropped-pngs/"
-    remove_white_pixels(input_folder_global, output_folder_global)
+    crop_out_white_pixels(input_folder_global, output_folder_global)
